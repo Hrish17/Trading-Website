@@ -1,0 +1,16 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.error h1 {
+    font-size: 60px;
+    margin: 0;
+}
+
+.error h2 {
+    font-size: 30px;
+    margin: 0;
+}

@@ -1,0 +1,245 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav {
+    /* height: 12vh; */
+    width: 100%;
+    background-color: #8AAAE5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+
+    .logo {
+        width: 80px;
+        margin-top: 10px;
+        margin-left: 20px;
+        cursor: pointer;
+
+        img {
+            width: 10vw;
+        }
+    }
+
+    .dashboard-buttons {
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            align-items: center;
+            font-size: 1.3rem;
+            background-color: transparent;
+            border: 0;
+            color: white;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+    }
+
+    .dashboard-button {
+        a {
+            color: rgb(255, 168, 63);
+        }
+    }
+
+    .dashboard-button:hover {
+        a {
+            color: rgb(255, 140, 0);
+        }
+    }
+
+    .compare-button:hover {
+        a {
+            color: rgb(255, 140, 0)
+        }
+    }
+
+    .compare-button:active {
+        a {
+            color: rgb(255, 168, 63);
+        }
+    }
+
+    .logout-button:hover {
+        a {
+            color: rgb(255, 140, 0);
+        }
+
+        background-color: #c82333;
+    }
+
+    .compare-button {
+        margin-left: 30px;
+    }
+
+    .logout-button {
+        margin-right: 20px;
+        background-color: #dc3545;
+        width: 10vw;
+        height: 6vh;
+        text-align: center;
+        border-radius: 1vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            font-size: 1.3rem;
+            background-color: transparent;
+            border: 0;
+            color: white;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+    }
+}
+
+.stock_list {
+    width: 85vw;
+}
+
+.filter {
+    margin-top: 3vh;
+}
+
+.stock-headings {
+    margin-top: 5vh;
+    display: flex;
+    font-size: 0.7rem;
+    justify-content: space-between;
+    background-color: #8AAAE5;
+    color: #f2f2f2;
+    height: 13vh;
+}
+
+.stock-name-heading {
+    display: flex;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.fetch-data-heading {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.stock-components {
+    background-color: #c8c8c8;
+    display: flex;
+    height: 10vh;
+    color: #2667df;
+}
+
+.stock-white {
+    background-color: white;
+}
+
+.stock-name {
+    display: flex;
+    width: 50%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.stock-data-with-different-timescale {
+    display: flex;
+    margin-left: 5%;
+    width: 40%;
+    font-size: 1.2rem;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        text-decoration: underline;
+        color: #2667df;
+        padding: 0 5px;
+    }
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 0%;
+    height: 40vh;
+    margin-top: 20px;
+    width: 100%;
+    background-image: url("./Images/footer-bg.webp");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+
+    img {
+        height: 30vh;
+        width: 30vh;
+        margin-left: 5vh;
+        border-radius: 15vh;
+        border: 2px solid black;
+    }
+
+    .our-image {
+        transition: box-shadow 0.3s ease-in-out;
+        /* transition: box-shadow 1s ease-out; */
+    }
+
+    .our-image:hover {
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    }
+
+    .girvar-details {
+        margin-top: 30vh;
+        margin-left: 10%;
+        font-size: 0.8rem;
+        display: flex;
+        color: white;
+
+        a {
+            margin-left: 5vh;
+            text-decoration: none;
+            color: white;
+        }
+    }
+
+    .hrishabh-details {
+        margin-top: 30vh;
+        margin-right: 10%;
+        font-size: 0.8rem;
+        display: flex;
+        color: white;
+
+        a {
+            margin-left: 5vh;
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
+
+footer::before {
+    background-color: rgba(29, 56, 132, 0.5);
+    z-index: -1;
+}

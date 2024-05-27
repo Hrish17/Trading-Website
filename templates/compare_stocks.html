@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Compare Stocks</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='compare_stocks.css') }}"
+    />
+  </head>
+  <body>
+    <div id="flash-message-container"></div>
+    <div id="submit-button">SUBMIT</div>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/dashboard">
+          <img src="../static/Images/logo.webp" alt="logo" />
+        </a>
+      </div>
+      <div class="dashboard-buttons">
+        <div class="dashboard-button">
+          <a href="/dashboard">Dashboard</a>
+        </div>
+        <div class="compare-button">
+          <a href="/compare">Compare Stocks</a>
+        </div>
+      </div>
+      <div class="logout-button">
+        <a href="/logout">Logout</a>
+      </div>
+    </nav>
+
+    <form class="filter" method="POST" action="/compare">
+      <label class="filter-label">Order by: </label>
+      <select name="order" id="order">
+        <option value="Company_Name">Name</option>
+        <option value="lastPrice">Last Price</option>
+        <option value="previousClose">Previous Close</option>
+        <option value="open">Opening Price</option>
+        <option value="close">Closing Price</option>
+      </select>
+      <label>Filter by: </label>
+      <select name="filter" id="filter">
+        <option value="lastPrice">Last Price</option>
+        <option value="previousClose">Previous Close</option>
+        <option value="open">Opening Price</option>
+        <option value="close">Closing Price</option>
+      </select>
+      <input type="number" id="integerInput" name="minValue" placeholder="Min. Value"></input>
+      <input type="number" id="integerInput" name="maxValue" placeholder="Max. Value"></input>
+      <input type="submit" value="Submit" />
+    </form>
+
+    <div class="stock_list">
+      <div class="stock-headings">
+        <div class="stock-name-heading">
+          <h1>COMPANY NAME</h1>
+        </div>
+        <div class="fetch-data-heading">
+          <h1>STOCK PRICE (INR)</h1>
+        </div>
+      </div>
+      {% if data %} {% for i in range(data|length) %}
+      {% if i % 2 == 0 %}
+      <div class="stock-components">
+      {% else %}
+      <div class="stock-components stock-white">
+      {% endif %}
+        
+
+        <div class="stock-name">{{data[i]["Company_Name"]}}</div>
+        <button id="tickButton" class="tick-button"><p class="tick-sign">&#10003;</p></button>
+        <div class="stocks-price">
+          <p>&#8377; {{prices[i]}}</p>
+        </div>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+
+    <footer class="dashboard-footer">
+      <div class="girvar-details">
+        <div>
+          <h1>Girvar Patidar (2022CS11616)</h1>
+        </div>
+      </div>
+      <div class="hrishabh-details">
+        <div>
+          <h1>Hrishabh Sangwaiya (2022CS10626)</h1>
+        </div>
+      </div>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

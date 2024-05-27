@@ -1,0 +1,12 @@
+.graph-container {
+    background-image: './Images/money.webp';
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    /* background-position: center; */
+    height: 88vh;
+    width: 90vw;
+    /* justify-content: center; */
+    float: right;
+}

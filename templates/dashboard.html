@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='dashboard.css') }}"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/dashboard">
+          <img src="../static/Images/logo.webp" alt="logo" />
+        </a>
+      </div>
+      <div class="dashboard-buttons">
+        <div class="dashboard-button">
+          <a href="/dashboard">Dashboard</a>
+        </div>
+        <div class="compare-button">
+          <a href="/compare">Compare Stocks</a>
+        </div>
+      </div>
+      <div class="logout-button">
+        <a href="/logout">Logout</a>
+      </div>
+    </nav>
+
+    <form class="filter" method="POST" action="/dashboard">
+      <label class="filter-label">Order by: </label>
+      <select name="order" id="order">
+        <option value="Company_Name">Name</option>
+        <option value="lastPrice">Last Price</option>
+        <option value="previousClose">Previous Close</option>
+        <option value="open">Opening Price</option>
+        <option value="close">Closing Price</option>
+      </select>
+      <label>Filter by: </label>
+      <select name="filter" id="filter">
+        <option value="lastPrice">Last Price</option>
+        <option value="previousClose">Previous Close</option>
+        <option value="open">Opening Price</option>
+        <option value="close">Closing Price</option>
+      </select>
+      <input type="number" id="integerInput" name="minValue" placeholder="Min. Value"></input>
+      <input type="number" id="integerInput" name="maxValue" placeholder="Max. Value"></input>
+      <input type="submit" value="Submit" />
+    </form>
+
+    <div class="stock_list">
+      <div class="stock-headings">
+        <div class="stock-name-heading">
+          <h1>COMPANY NAME</h1>
+        </div>
+        <div class="fetch-data-heading">
+          <!-- <div class="daily-data-heading">
+                <h1>Daily Stock Data</h1>
+            </div>
+            <div class="weekly-stock-data-heading">
+                <h1>Weekly Stock Data</h1>
+            </div>
+            <div class="monthly-stock-data-heading">
+                <h1>Monthly Stock Data</h1>
+            </div> -->
+          <h1>STOCK GRAPH</h1>
+        </div>
+      </div>
+      {% if data %} {% for i in range(data|length) %}
+      {% if i % 2 == 0 %}
+      <div class="stock-components">
+      {% else %}
+      <div class="stock-components stock-white">
+      {% endif %}
+        <div class="stock-name">{{data[i]["Company_Name"]}}</div>
+        <div class="stock-data-with-different-timescale">
+          <a href="/{{data[i]['Symbol']}}/daily">Daily</a>
+          <a href="/{{data[i]['Symbol']}}/weekly">Weekly</a>
+          <a href="/{{data[i]['Symbol']}}/monthly">Monthly</a>
+        </div>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+
+    <footer class="dashboard-footer">
+      <div class="girvar-details">
+          <a href="https://www.linkedin.com/in/girvar-patidar-46721a253/" target="_blank"><h1>Girvar Patidar (2022CS11616)</h1></a>
+      </div>
+      <div class="hrishabh-details">
+          <a href="https://www.linkedin.com/in/hrishabh-sangwaiya-99597a264/" target="_blank"><h1>Hrishabh Sangwaiya (2022CS10626)</h1></a>
+      </div>
+    </footer>
+  </body>
+</html>
